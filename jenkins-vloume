@@ -1,0 +1,21 @@
+Jenkins installation and configuration in Linux Kernal:
+
+docker pull jenkins/jenkins
+
+docker images 
+
+#Without Mount docker volume
+docker run -p 8080:8080 --name=jenkins-master -d jenkins/jenkins   
+
+docker exec -it <container name> /bin/bash
+
+docker volume create jenkins-volume
+
+# with mount a docker volume
+docker run -p 8080:8080 --name=jenkins-master -d -v jenkins-volume:/var  jenkins/jenkins
+
+docker stop <container-id>
+
+docker ps -a 
+
+docker rm container-id
